@@ -1,0 +1,942 @@
+:root{
+    --primary-color:#0C1014;
+    --primary-light:rgb(42, 48, 58);
+    --half-white:rgba(255, 255, 255, 0.5);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scrollbar-width: none;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body{
+     background-color:var(--primary-color);
+}
+
+.container{
+    display: flex;
+}
+
+nav{
+    background-color: var(--primary-color);
+    position: fixed;
+    overflow-x: hidden;
+    width: 67px;
+    height: 100vh;
+    color: white;
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    z-index: 700;
+}
+
+
+nav:hover{
+    width: 270px;
+    transition: 0.3s;
+}
+
+nav > img{
+    width: 30px;
+    height: 30px;
+    margin: 15px;
+}
+
+nav > ul{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    list-style-type: none;
+}
+
+nav .myprofile{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+nav li{
+    display: flex;
+    gap: 20px;
+}
+
+nav  li > i{
+    font-size: 20px;
+}
+
+nav > ul > a{
+    display: flex;
+    gap: 15px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+nav > ul > a:active{
+    transform: scale(0.98);
+}
+
+nav a{
+    text-decoration: none;
+    color: white;
+}
+
+
+nav .notifynav:focus ~ .notification{
+    visibility: visible;
+    left: 0;
+    position: fixed;
+}
+
+nav > ul > a:hover{
+    background-color: rgba(255, 255, 255,0.1);
+}
+
+nav > ul > li:last-child{
+    margin-top: -15px;
+}
+
+
+nav > ul > :nth-child(1){
+    margin-top: 50px;
+}
+
+.more{
+    width: 300px;
+    height: 420px;
+    border-radius: 10px;
+    background-color: var(--primary-light);
+    color: white;
+    position: absolute;
+    top: 150px;
+    left: 20px;
+    z-index: 100;
+    visibility: hidden;
+    position: fixed;
+}
+.more .line{
+    width: 100%;
+    height: 4px;
+    background-color: rgba(128, 128, 128, 0.536);
+}
+nav .more ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 30px;
+}
+nav .more li{
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 10px 25px;
+}
+
+nav .more li:hover{
+    background-color: rgba(255, 255, 255,0.1);
+}
+
+nav .bottomlist{
+    margin-top: 60px;
+}
+nav .bottomlist:focus ~ .more{
+    visibility: visible;
+}
+
+.notification{
+    /* background-color: red; */
+    position: absolute;
+    top: 0;
+    left: -450px;
+    width: 430px;
+    height: 100vh;
+    padding: 20px;
+    z-index: 800;
+    overflow: auto;
+    transition: 0.3s;
+    background-color: var(--primary-color);
+    scrollbar-width: auto;
+    visibility: hidden;
+}
+
+
+
+.notification h2{
+    color: white;
+}
+.notification .topbtns{
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    justify-content: space-between;
+}
+.notification .topbtns div{
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-size: 13px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.notification .topbtns div:hover{
+    background-color: var(--primary-light);
+}
+
+.notification .topbtns :nth-child(1){
+    background-color: var(--primary-light);
+}
+
+.notification .request{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    border-radius: 10px;
+    padding: 10px 2px;
+    /* background-color: orange; */
+}
+
+.notification .request:hover{
+    background-color: var(--primary-light);
+}
+
+.notification .request > :nth-child(2){
+   margin-left: -10px;
+   margin-top: 10px;
+}
+
+.notification .request img{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+.notification .twotext{
+    padding: 0 10px;
+
+}
+.notification .twotext > :nth-child(1){
+    color: white;
+}
+.notification .twotext > :nth-child(2){
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+}
+
+.notification .request .notify{
+    display: flex;
+    align-items: center;
+}
+
+.notification .request .notify div{
+    width: 8px;
+    height: 8px;
+    background-color: rgb(62, 62, 246);
+    border-radius: 50%;
+    margin: 0 10px;
+}
+
+.notification .request .notify{
+    margin-left: auto;
+}
+
+.allnotify{
+    width: 100%;
+    /* background-color: orange; */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: white;
+    padding: 5px 0;
+}
+.allnotify > h4{
+    margin: 15px 0 5px;
+}
+
+.allnotify .n1{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+.allnotify .n1:hover{
+    background-color: var(--primary-light);
+}
+
+.allnotify .n1 > p{
+    font-size: 15px;
+}
+.allnotify .n1 i{
+    padding: 0 4px;
+    font-size: 12px;
+}
+.allnotify .n1 p span:nth-child(2){
+    color: rgba(255, 255, 255, 0.6);
+    margin-left: 2px;
+}
+.allnotify .n1 p span:nth-child(3){
+    color: rgba(255, 255, 255, 0.4);
+    margin-left: 4px;
+}
+.allnotify .n1 img{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.allnotify .n2 :nth-child(2){
+    margin-left: -30px;
+    margin-top: 20px;
+}
+.allnotify .n2 img{
+    width: 27px;
+    height: 27px;
+}
+
+/* END OF COMMOM CODE */
+
+
+.maindiv{
+    width: 100vw;
+    height: 100vh;
+    /* background-color: red; */
+    margin-left: 80px;
+    display: flex;
+    overflow: hidden;
+    /* z-index: -1; */
+}
+
+.maindiv .users{
+    background-color: var(--primary-color);
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 380px;
+    height: 100vh;
+    z-index: 1;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 25px;
+}
+
+.maindiv i{
+    cursor: pointer;
+}
+
+.maindiv .users .top > i{
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.maindiv .users .top > :nth-child(3){
+    margin-left: auto;
+    font-size: 18px;
+    margin-right: 5px;
+}
+
+
+.maindiv .users .top{
+    display: flex;
+    /* background-color: black; */
+    align-items: center;
+    padding: 5px 10px;
+}
+.maindiv .users h2{
+    padding: 2px 10px;
+    font-size: 16px;
+    color: white;
+    margin: 5px 8px;
+}
+
+.maindiv .users .top {
+    color: white;
+}
+.maindiv .notes{
+    width: 100%;
+    height: 180px;
+    padding: 5px;
+    display: flex;
+    overflow-x: auto;
+    margin-top: 10px;
+    overflow-y: hidden;
+    /* background-color: orange; */
+}
+
+.maindiv .n1{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.maindiv .notes .n1 > :last-child{
+    color: white;
+    font-size: 12px;
+    margin-top: -8px;
+}
+
+.maindiv .notes .n1 .mynote{
+    color: rgba(255, 255, 255,0.5);
+    font-size: 12px;
+}
+
+.maindiv .search{
+    width: 98%;
+    padding: 5px;
+    border-radius: 20px;
+    background-color:rgba(255, 255, 255, 0.1);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.5);
+    box-sizing: border-box;
+    align-self: center;
+}
+.maindiv .search > input{
+    width: 100%;
+    border: none;
+    color: white;
+    font-size: 15px;
+    background: transparent;
+    padding: 5px 15px;
+}
+.maindiv .search > input::placeholder{
+    font-size: 16px;
+    color: var(--half-white);
+}
+.maindiv .search > input:focus{
+    border: none;
+    outline: none;
+}
+.maindiv .search > i{
+    padding: 0 10px;
+}
+
+.outerdivcircleprofile .note{
+    position: absolute;
+    background-color: rgb(37, 41, 46);
+    color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
+    padding: 7px;
+    top: -15px;
+    border-radius: 15px;
+}
+
+.maindiv .chatlist{
+    width: 100%;
+    overflow: auto;
+    /* padding:0 5px; */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 20px;
+}
+.maindiv .chatlist .user1:hover{
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.outerdivcircleprofile img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.outerdivcircleprofile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 82px;
+    height: 80px;
+    border-radius: 50%;
+    margin: 10px;
+    /* background-color: purple; */
+}
+
+.users .user1{
+    width: 100%;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 2px 15px;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+}
+.users .user1 .outerdivcirclepost{
+    width: 53px;
+    height: 53px;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(255, 255, 255,0.2);
+    border-radius: 50%;
+    align-items: center;
+}
+.users .user1 .outerdivcirclepost > img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+}
+
+.chatlist .user1 .names :nth-child(2){
+    color: var(--half-white);
+    font-size: 13px;
+}
+
+.users .user1 .dot{
+    width: 8px;
+    height: 8px;
+    background-color: rgb(140, 140, 249);
+    margin-left: auto;
+    margin-right: 20px;
+    border-radius: 50%;
+}
+
+.chatview{
+    width: 100%;
+    height: 100%;
+    /* background-color: orange; */
+}
+
+.chatview .topnav{
+    width: 100%;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 0 20px; */
+    padding: 2px 20px 2px 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.chatview .topnav .righticon{
+    display: flex;
+    gap: 15px;
+    font-size: 17px;
+}
+
+.chatview .user1 .names :last-child{
+    color: var(--half-white);
+    font-size: 12px;
+}
+
+.chatview .user1{
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 4px;
+    color: white;
+}
+.chatview .user1 .outerdivcirclepost{
+    width: 53px;
+    height: 53px;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(255, 255, 255,0.2);
+    border-radius: 50%;
+    align-items: center;
+}
+.chatview .user1 .outerdivcirclepost > img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+}
+
+.chatview .chatbox {
+    width: 100%;
+    height: 83%;
+    color: white;
+    /* background-color: black; */
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    overflow: auto;
+}
+
+.chatview .chatbox .oneconversation{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.chatview .chatbox .oneconversation {
+    font-size: 14px;
+}
+
+.chatview .chatbox .oneconversation > :nth-child(even){
+    background-color: blue;
+    padding: 8px 16px;
+    border-radius: 15px;
+    align-self: flex-end;
+
+}
+
+.chatview .chatbox img{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.chatview .chatbox .usermsg{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chatview .chatbox .usermsg :last-child{
+    background-color:rgba(255, 255, 255,0.1);
+    padding: 8px 16px;
+    border-radius: 20px;
+}
+
+.maindiv .bottomdiv .searchbottom{
+    width: 98%;
+    padding:8px 5px;
+    margin: 3px 2px;
+    border-radius: 25px;
+    background-color: transparent;
+    border: 1px solid rgba(255, 255, 255,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.5);
+}
+.maindiv .bottomdiv .searchbottom > input{
+    width: 100%;
+    border: none;
+    color: white;
+    font-size: 15px;
+    background: transparent;
+    padding: 5px 15px;
+}
+.maindiv .bottomdiv .searchbottom > input::placeholder{
+    font-size: 16px;
+    color: var(--half-white);
+}
+.maindiv .bottomdiv .searchbottom > input:focus{
+    border: none;
+    outline: none;
+}
+.maindiv .bottomdiv .searchbottom > i{
+    padding: 0 10px;
+    font-size: 20px;
+}
+
+.maindiv .bottomdiv .searchbottom .righticons{
+    display: flex;
+    gap: 7px;
+    padding-right: 10px;
+    font-size: 20px;
+}
+
+
+/* -----------------MEDIA QUERY------------ */
+
+
+/* MEDIA QUERY FOR TAB */
+@media (min-width:772px) and (max-width:992px){
+ 
+    
+.maindiv .users{
+  width: 120px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+.maindiv .users .top > :nth-child(3){
+    margin-left: -5px;
+    font-size: 22px;
+    padding: 5px;
+}
+
+
+.maindiv .users .top{
+    display: flex;
+    /* background-color: black; */
+    align-items: center;
+    padding: 5px 10px;
+}
+
+.users .top > :nth-child(1){
+    display: none;
+}
+
+.users .top > :nth-child(2){
+    display: none;
+}
+
+.maindiv .users h2{
+    display: none;
+}
+
+.maindiv .users .top {
+    color: white;
+}
+.maindiv .notes{
+    display: none;
+}
+
+.maindiv .n1{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.maindiv .search{
+   display: none;
+}
+
+.outerdivcircleprofile img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.users .user1 .outerdivcirclepost{
+    width: 63px;
+    height: 63px;
+}
+.users .user1 .outerdivcirclepost > img{
+    width: 60px;
+    height: 60px;
+}
+
+.chatlist .user1 .names{
+    display: none;
+}
+
+
+.users .user1 .dot{
+  display: none;
+}
+
+}
+
+
+
+/* MEDIA QUERY FOR MOBILE */
+@media (max-width:771.98px){
+ 
+
+nav{
+    background-color: var(--primary-color);
+    position: fixed;
+    /* overflow-x: hidden; */
+    height: 50px;
+    bottom: 0px;
+    width: 100vw;
+    color: white;
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+    overflow: hidden;
+    /* background-color: orange; */
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+
+nav:hover{
+    width: 100%;
+    transition: 0s;
+}
+
+nav .myprofile{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+nav > img{
+    width: 0px;
+    height: 0px;
+    margin: 0px;
+    visibility: hidden;
+}
+
+nav > ul{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style-type: none;
+    align-items: center;
+    margin-top: 45px;
+}
+
+nav > ul :nth-child(4){
+    order: 2;
+}
+nav > ul :nth-child(2){
+    order: 3;
+}
+nav > ul :nth-child(3){
+    order: 5;
+}
+
+nav > ul :nth-child(7){
+    order: 4;
+}
+
+nav > ul :nth-child(8){
+    order: 6;
+}
+
+nav > ul :nth-child(9){
+    display: none;
+}
+
+nav > ul :nth-child(11){
+    display: none;
+}
+
+nav > ul :nth-child(5){
+    display: none;
+}
+
+nav li{
+    width: 6vw;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+}
+
+nav  li > i{
+    font-size: 23px;
+    padding: 10px 0;
+}
+
+nav > ul > a{
+    display: flex;
+    gap: 0px;
+    padding: 5px 20px;
+    justify-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+nav > ul > i:hover{
+    background-color: rgba(255, 255, 255,0.1);
+}
+
+
+
+nav > ul > :nth-child(1){
+    margin-top: 0px;
+}
+
+.maindiv{
+    margin-left: 0;
+}
+
+
+    
+.maindiv .users{
+  width: 120px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: orange; */
+}
+
+.maindiv .users .top > :nth-child(3){
+    margin-left: -5px;
+    font-size: 22px;
+    padding: 5px;
+}
+
+
+.maindiv .users .top{
+    display: flex;
+    /* background-color: black; */
+    align-items: center;
+    padding: 5px 10px;
+}
+
+.users .top > :nth-child(1){
+    display: none;
+}
+
+.users .top > :nth-child(2){
+    display: none;
+}
+
+.maindiv .users h2{
+    display: none;
+}
+
+.maindiv .users .top {
+    color: white;
+}
+.maindiv .notes{
+    display: none;
+}
+
+.maindiv .n1{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.maindiv .search{
+   display: none;
+}
+
+.maindiv .bottomdiv .searchbottom{
+    width: 90%;
+    margin: auto;
+    margin-top: 10px;
+}
+
+.outerdivcircleprofile img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.users .user1 .outerdivcirclepost{
+    width: 63px;
+    height: 63px;
+}
+.users .user1 .outerdivcirclepost > img{
+    width: 60px;
+    height: 60px;
+}
+
+.chatlist .user1 .names{
+    display: none;
+}
+
+
+.users .user1 .dot{
+  display: none;
+}
+
+.maindiv .chatbox{
+    height: 74vh;
+}
+
+.maindiv .chatbox .oneconversation span{
+    margin-top: 10px;
+}
+
+
+}

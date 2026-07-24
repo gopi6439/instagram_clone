@@ -1,0 +1,1319 @@
+
+
+:root{
+    --primary-color:#0C1014;
+    --primary-light:rgb(42, 48, 58);
+    --half-white:rgba(255, 255, 255, 0.5);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scrollbar-width: none;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body{
+    background-color:var(--primary-color);
+}
+
+.container{
+    display: flex;
+    position: relative;
+}
+
+nav{
+    background-color: var(--primary-color);
+    position: fixed;
+    overflow-x: hidden;
+    width: 67px;
+    height: 100vh;
+    z-index: 10;
+    color: white;
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+}
+
+
+nav:hover{
+    width: 270px;
+    transition: 0.3s;
+}
+
+nav > img{
+    width: 30px;
+    height: 30px;
+    margin: 15px;
+}
+
+nav > ul{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    list-style-type: none;
+}
+
+nav li{
+    display: flex;
+    gap: 20px;
+}
+
+nav  li > i{
+    font-size: 20px;
+}
+
+nav > ul > a{
+    display: flex;
+    gap: 15px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+nav .myprofile{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+nav .notifynav:focus ~ .notification{
+    visibility: visible;
+    left: 0;
+    position: fixed;
+}
+
+nav a{
+    text-decoration: none;
+    color: white;
+}
+
+nav > ul > a:active{
+    transform: scale(0.98);
+}
+
+nav > ul > a:hover{
+    background-color: rgba(255, 255, 255,0.1);
+}
+
+nav > ul > li:last-child{
+    margin-top: -15px;
+}
+
+
+nav > ul > :nth-child(1){
+    margin-top: 50px;
+}
+
+.more{
+    width: 300px;
+    height: 420px;
+    border-radius: 10px;
+    background-color: var(--primary-light);
+    color: white;
+    position: absolute;
+    top: 150px;
+    left: 20px;
+    z-index: 100;
+    visibility: hidden;
+    position: fixed;
+}
+.more .line{
+    width: 100%;
+    height: 4px;
+    background-color: rgba(128, 128, 128, 0.536);
+}
+nav .more ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 30px;
+}
+nav .more li{
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 10px 25px;
+}
+
+
+nav .more li:hover{
+    background-color: rgba(255, 255, 255,0.1);
+}
+
+nav .bottomlist{
+    margin-top: 60px;
+}
+nav .bottomlist:focus ~ .more{
+    visibility: visible;
+}
+
+.message{
+    width: 240px;
+    height: 50px;
+    background-color:rgb(42, 48, 58);
+    border-radius: 25px;
+    padding: 10px 15px;
+    display: flex;
+    position: fixed;
+    right: 20px;
+    bottom: 30px;
+    margin: 0 30px;
+    align-items: center;
+    gap: 10px;
+    color: white;
+    border: none
+    
+}
+
+.message > :nth-child(1){
+    display: flex;
+    position: relative;
+    font-size: 16px;
+}
+.message > :nth-child(2){
+    font-size: 16px;
+}
+.message > :nth-child(1) > div{
+    width: 12px;
+    height: 12px;
+    font-size: 10px;
+    display: flex;
+    padding-bottom: 2px;
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -3px;
+    right: -3px;
+}
+
+.message .imgdiv{
+width: 20px;
+height: 20px;
+display: flex;
+}
+
+.message .img1{
+width: 20px;
+height: 20px;
+border-radius: 50%;
+position: absolute;
+right: 10px;
+}
+
+.message .img2{
+width: 20px;
+height: 20px;
+border-radius: 50%;
+position: absolute;
+right: 25px;
+}
+
+
+.notification{
+    /* background-color: red; */
+    position: absolute;
+    top: 0;
+    left: -450px;
+    width: 430px;
+    height: 100vh;
+    padding: 20px;
+    overflow: auto;
+    transition: 0.3s;
+    background-color: var(--primary-color);
+    scrollbar-width: auto;
+    visibility: hidden;
+}
+
+
+
+.notification h2{
+    color: white;
+}
+.notification .topbtns{
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    justify-content: space-between;
+}
+.notification .topbtns div{
+    background-color: var(--primary-color);
+    color: white;
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-size: 13px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.notification .topbtns div:hover{
+    background-color: var(--primary-light);
+}
+
+.notification .topbtns :nth-child(1){
+    background-color: var(--primary-light);
+}
+
+.notification .request{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    margin: 15px 0;
+    border-radius: 10px;
+    padding: 10px 2px;
+    /* background-color: orange; */
+}
+
+.notification .request:hover{
+    background-color: var(--primary-light);
+}
+
+.notification .request > :nth-child(2){
+   margin-left: -10px;
+   margin-top: 10px;
+}
+
+.notification .request img{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+.notification .twotext{
+    padding: 0 10px;
+
+}
+.notification .twotext > :nth-child(1){
+    color: white;
+}
+.notification .twotext > :nth-child(2){
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+}
+
+.notification .request .notify{
+    display: flex;
+    align-items: center;
+}
+
+.notification .request .notify div{
+    width: 8px;
+    height: 8px;
+    background-color: rgb(62, 62, 246);
+    border-radius: 50%;
+    margin: 0 10px;
+}
+
+.notification .request .notify{
+    margin-left: auto;
+}
+
+.allnotify{
+    width: 100%;
+    /* background-color: orange; */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: white;
+    padding: 5px 0;
+}
+.allnotify > h4{
+    margin: 15px 0 5px;
+}
+
+.allnotify .n1{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 5px;
+    border-radius: 15px;
+}
+
+.allnotify .n1:hover{
+    background-color: var(--primary-light);
+}
+
+.allnotify .n1 > p{
+    font-size: 15px;
+}
+.allnotify .n1 i{
+    padding: 0 4px;
+    font-size: 12px;
+}
+.allnotify .n1 p span:nth-child(2){
+    color: rgba(255, 255, 255, 0.6);
+    margin-left: 2px;
+}
+.allnotify .n1 p span:nth-child(3){
+    color: rgba(255, 255, 255, 0.4);
+    margin-left: 4px;
+}
+.allnotify .n1 img{
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.allnotify .n2 :nth-child(2){
+    margin-left: -30px;
+    margin-top: 20px;
+}
+.allnotify .n2 img{
+    width: 27px;
+    height: 27px;
+}
+
+/* END OF COMMOM CODE */
+
+.mobilenav{
+    display: none;
+}
+
+
+.maindiv{
+    width: 70%;
+    /* background-color: red; */
+    /* margin-left: 220px; */
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.maindiv .innerdiv{
+    width: 70%;
+}
+
+.maindiv .topinfo{
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    gap: 20px;
+}
+
+.maindiv .topinfo .rightside{
+    color: white;
+    padding: 3px;
+}
+
+.maindiv .rightside .topnames > :nth-child(2){
+    display: block;
+}
+
+.maindiv .topinfo .topnames > h2 >i{
+    padding-left: 10px;
+    font-size: 20px;
+}
+
+.maindiv .counts{
+    padding: 10px 0;
+    display: flex;
+    gap: 20px;
+}
+
+.maindiv .counts .span1{
+    display: flex;
+    gap: 6px;
+}
+
+.maindiv .counts > p{
+    padding-right: 10px;
+}
+
+.maindiv .bio{
+    margin-top: 13px;
+}
+
+.maindiv .bio > :nth-child(1){
+    display: none;
+}
+
+.maindiv .profilebutton{
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: center;
+    padding: 5px;
+}
+
+.maindiv .profilebutton button{
+    width: 50%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: var(--primary-light);
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+.maindiv .profilebottom{
+    width: 100%;
+    margin-top: 20px;
+}
+.maindiv .profilebottom ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    font-size: 22px;
+}
+.maindiv .profilebottom ul > li{
+    padding: 5px 20px;
+    cursor: pointer;
+}
+
+.maindiv .profilebottom .gridimage{
+    border-bottom: 1px solid white;
+}
+
+.maindiv .profilebottom .grid div{
+    /* border: 1px solid white; */
+    height: 300px;
+}
+
+.maindiv .profilebottom .grid{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+
+.maindiv .profilebottom .grid img{
+    width: 100%;
+    height: 100%;
+}
+
+
+.highlights{
+    width: 100%;
+    height: 130px;
+    /* background-color: aqua; */
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 0 10px;
+    overflow-x: auto;
+}
+
+.highlight1{
+    width: 100px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+    align-items: center;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.outerdivcircle img{
+    width: 70px;
+    height: 70px;
+    border: 3px solid var(--primary-color);
+    border-radius: 50%;
+}
+
+.outerdivcircle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    /* background-color: purple; */
+    background-color: rgba(255, 255, 255,0.2);
+}
+
+.highlight1 p{
+    font-size: 12px;
+    color: white;
+}
+
+.outerdivcircleprofile .note{
+    position: absolute;
+    background-color: rgb(37, 41, 46);
+    color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    padding: 8px;
+    top: -20px;
+    border-radius: 15px;
+}
+
+.outerdivcircleprofile img{
+    width: 180px;
+    height: 180px;
+    border: 3px solid var(--primary-color);
+    border-radius: 50%;
+}
+
+.outerdivcircleprofile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 185px;
+    height: 185px;
+    border-radius: 50%;
+    /* background-color: purple; */
+    background: linear-gradient(60deg,yellow,rgb(236, 86, 86),rgb(228, 7, 132));
+}
+
+
+/*---------------------- MEDIA QUERY-------------------------- */
+
+/* MEDIA QUERY FOR SMALL PC */
+@media (min-width:1151px) and (max-width:1350.98px) {
+    
+    .maindiv .profilebottom .grid{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.maindiv{
+    width: 80%;
+}
+
+.maindiv .innerdiv{
+    width: 70%;
+}
+
+
+}
+
+/* MEDIA QUERY FOR TAB DEVICE */
+@media (min-width:992px) and (max-width:1150.98px) {
+    
+.maindiv .profilebottom .grid{
+    width: 100%;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.outerdivcircleprofile img{
+    width: 130px;
+    height: 130px;
+    
+}
+
+.outerdivcircleprofile{
+    width: 135px;
+    height: 135px;
+}
+
+
+.maindiv .profilebutton{
+    margin-top: 100px;
+}
+
+.maindiv .topinfo .rightside{
+    width: 100%;
+    position: relative;
+    left: -130px;
+    color: white;
+    padding: 3px;
+    top: 100px;
+    /* background-color: yellow; */
+}
+.maindiv .rightside .bio{
+    font-size: 14px;
+    margin-left: -30px;
+}
+
+.maindiv .counts{
+    padding: 10px 0;
+    display: flex;
+    gap: 20px;
+}
+
+.maindiv .counts .span1{
+    display: flex;
+    gap: 6px;
+}
+
+.maindiv .counts > p{
+    padding-right: 10px;
+    
+}
+
+.maindiv .counts .span1 > p{
+    font-size: 14px;    
+}
+
+.maindiv .topinfo .rightside > .topnames{
+   margin-left: 150px;
+    margin-top: -50px;
+}
+
+.maindiv{
+    width: 80%;
+    /* background-color: red; */
+    /* margin-left: 220px; */
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.maindiv .innerdiv{
+    width: 70%;
+}
+
+
+}
+
+
+/* MEDIA QUERY FOR LARGR MOBILE DEVICE */
+@media (min-width:772px) and (max-width:991.98px) {
+
+    
+.maindiv .grid{
+    grid-template-columns: repeat(3,1fr);
+}
+    
+.maindiv{
+    width: 90%;
+}
+
+.maindiv .innerdiv{
+    width: 100%;
+}
+
+.maindiv .profilebottom .grid{
+    width: 100%;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.outerdivcircleprofile img{
+    width: 130px;
+    height: 130px;
+    
+}
+
+.outerdivcircleprofile{
+    width: 135px;
+    height: 135px;
+    margin-left: 30px;
+}
+
+
+.maindiv .profilebutton{
+    margin-top: 100px;
+}
+
+.maindiv .topinfo .rightside{
+    width: 100%;
+    position: relative;
+    left: -130px;
+    color: white;
+    padding: 3px;
+    top: 100px;
+    /* background-color: yellow; */
+}
+
+.maindiv .rightside .bio{
+    font-size: 14px;
+    margin-left: -30px;
+}
+
+.maindiv .counts{
+    padding: 10px 0;
+    display: flex;
+    gap: 20px;
+}
+
+.maindiv .counts .span1{
+    display: flex;
+    gap: 6px;
+}
+
+.maindiv .counts > p{
+    padding-right: 10px;
+    
+}
+
+.maindiv .counts .span1 > p{
+    font-size: 14px;    
+}
+
+.maindiv .topinfo .rightside > .topnames{
+   margin-left: 150px;
+    margin-top: -50px;
+}
+
+.maindiv{
+    width: 80%;
+    /* background-color: red; */
+    /* margin-left: 220px; */
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.maindiv .innerdiv{
+    width: 100%;
+}
+
+
+}
+
+
+/* MEDIA QUERY FOR LARGE MOBILE DEVICES */
+@media (min-width:576px) and (max-width:771.98px) {
+
+nav{
+    background-color: var(--primary-color);
+    position: fixed;
+    /* overflow-x: hidden; */
+    height: 50px;
+    bottom: 0px;
+    width: 100vw;
+    color: white;
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+    overflow: hidden;
+    /* background-color: orange; */
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+
+nav:hover{
+    width: 100%;
+    transition: 0s;
+}
+
+nav .myprofile{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+nav > img{
+    width: 0px;
+    height: 0px;
+    margin: 0px;
+    visibility: hidden;
+}
+
+nav > ul{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style-type: none;
+    align-items: center;
+    margin-top: 45px;
+}
+
+nav > ul :nth-child(4){
+    order: 2;
+}
+nav > ul :nth-child(2){
+    order: 3;
+}
+nav > ul :nth-child(3){
+    order: 5;
+}
+
+nav > ul :nth-child(7){
+    order: 4;
+}
+
+nav > ul :nth-child(8){
+    order: 6;
+}
+
+nav > ul :nth-child(9){
+    display: none;
+}
+
+nav > ul :nth-child(11){
+    display: none;
+}
+
+nav > ul :nth-child(5){
+    display: none;
+}
+
+nav li{
+    width: 6vw;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+}
+
+nav  li > i{
+    font-size: 23px;
+    padding: 10px 0;
+}
+
+nav > ul > a{
+    display: flex;
+    gap: 0px;
+    padding: 5px 20px;
+    justify-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+nav > ul > i:hover{
+    background-color: rgba(255, 255, 255,0.1);
+}
+
+
+
+nav > ul > :nth-child(1){
+    margin-top: 0px;
+}
+
+
+.maindiv .grid{
+    grid-template-columns: repeat(3,1fr);
+}
+    
+.maindiv{
+    width: 100%;
+    /* background-color: red; */
+    /* margin-left: 130px; */
+    margin: auto;
+}
+
+.maindiv .innerdiv{
+    width: 100%;
+    /* background-color: orange; */
+}
+
+
+
+.message{
+    width: 50px;
+    height: 50px;
+    bottom: 70px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    
+}
+
+.message > :nth-child(1){
+    display: flex;
+    position: relative;
+    font-size: 20px;
+}
+.message > :nth-child(2){
+    display: none;
+}
+.message > :nth-child(1) > div{
+    bottom: -6px;
+    right: -5px;
+    width: 15px;
+    height: 15px;
+    font-size: 13px;
+}
+
+.message .imgdiv{
+display: none;
+}
+
+.maindiv .profilebottom .grid{
+    width: 100%;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.outerdivcircleprofile img{
+    width: 100px;
+    height: 100px;
+    
+}
+
+.outerdivcircleprofile{
+    width: 105px;
+    height: 105px;
+}
+
+
+.maindiv .profilebutton{
+    margin-top: 100px;
+}
+
+.maindiv .topinfo .rightside{
+    width: 100%;
+    position: relative;
+    left: -130px;
+    color: white;
+    padding: 3px;
+    top: 100px;
+    /* background-color: yellow; */
+}
+
+.maindiv .rightside .bio > p{
+    font-size: 14px;
+}
+
+.maindiv .counts{
+    padding: 10px 0;
+    display: flex;
+    gap: 20px;
+}
+
+.maindiv .counts .span1{
+    display: flex;
+    gap: 6px;
+}
+
+.maindiv .counts > p{
+    padding-right: 10px;
+    
+}
+
+.maindiv .counts .span1 > p{
+    font-size: 14px;    
+}
+
+.mobilenav{
+    width: 100%;
+    height: 40px;
+    /* background-color: orange; */
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 10px 20px;
+    visibility: visible;
+}
+.mobilenav > p{
+    font-size: 14px;
+}
+
+.mobilenav .alert{
+    background-color: red;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 3px;
+    right: 18px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+}
+
+.maindiv .topinfo .rightside > .topnames{
+   margin-left: 150px;
+   margin-top: -30px;
+}
+
+
+}
+
+
+@media (max-width:575.98px){
+    
+
+nav{
+    background-color: var(--primary-color);
+    position: fixed;
+    /* overflow-x: hidden; */
+    height: 50px;
+    bottom: 0px;
+    width: 100vw;
+    color: white;
+    display: flex;
+    padding: 10px;
+    flex-direction: row;
+    overflow: hidden;
+    /* background-color: orange; */
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+
+nav:hover{
+    width: 100%;
+    transition: 0s;
+}
+
+nav .myprofile{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+}
+
+nav > img{
+    width: 0px;
+    height: 0px;
+    margin: 0px;
+    visibility: hidden;
+}
+
+nav > ul{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    list-style-type: none;
+    align-items: center;
+    margin-top: 45px;
+}
+
+nav > ul :nth-child(4){
+    order: 2;
+}
+nav > ul :nth-child(2){
+    order: 3;
+}
+nav > ul :nth-child(3){
+    order: 5;
+}
+
+nav > ul :nth-child(7){
+    order: 4;
+}
+
+nav > ul :nth-child(8){
+    order: 6;
+}
+
+nav > ul :nth-child(9){
+    display: none;
+}
+
+nav > ul :nth-child(11){
+    display: none;
+}
+
+nav > ul :nth-child(5){
+    display: none;
+}
+
+nav li{
+    width: 6vw;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+}
+
+nav  li > i{
+    font-size: 23px;
+    padding: 10px 0;
+}
+
+nav > ul > a{
+    display: flex;
+    gap: 0px;
+    padding: 5px 20px;
+    justify-content: center;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+
+nav > ul > i:hover{
+    background-color: rgba(255, 255, 255,0.1);
+}
+
+
+
+nav > ul > :nth-child(1){
+    margin-top: 0px;
+}
+
+
+.maindiv .grid{
+    grid-template-columns: repeat(3,1fr);
+}
+
+.maindiv .profilebottom .grid div{
+    height: 200px;
+}
+    
+.maindiv{
+    width: 100%;
+    margin: auto;
+}
+
+.maindiv .innerdiv{
+    width: 100%;
+}
+
+
+
+.message{
+    width: 50px;
+    height: 50px;
+    bottom: 70px;
+    border-radius: 50%;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    
+}
+
+.message > :nth-child(1){
+    display: flex;
+    position: relative;
+    font-size: 20px;
+}
+.message > :nth-child(2){
+    display: none;
+}
+.message > :nth-child(1) > div{
+    bottom: -6px;
+    right: -5px;
+    width: 15px;
+    height: 15px;
+    font-size: 13px;
+}
+
+.message .imgdiv{
+display: none;
+}
+
+.maindiv .profilebottom .grid{
+    width: 100%;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.outerdivcircleprofile img{
+    width: 100px;
+    height: 100px;
+    
+}
+
+.outerdivcircleprofile{
+    width: 105px;
+    height: 105px;
+}
+
+
+.maindiv .profilebutton{
+    margin-top: 100px;
+}
+
+.maindiv .profilebottom{
+    margin-top: 0px;
+}
+
+.maindiv .topinfo .rightside{
+    width: 100%;
+    position: relative;
+    left: -130px;
+    color: white;
+    padding: 3px;
+    top: 100px;
+}
+
+.maindiv .rightside .topnames > :nth-child(2){
+    display: none;
+}
+
+.maindiv .rightside .bio > p{
+    font-size: 14px;
+}
+
+.maindiv .bio > :nth-child(1){
+    display: block;
+    margin-top: 20px;
+}
+
+
+
+.maindiv .counts{
+    padding: 10px 0;
+    display: flex;
+    gap: 30px;
+}
+
+.maindiv .counts .span1{
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+}
+
+.maindiv .counts > p{
+    padding-right: 10px;
+    
+}
+
+.maindiv .counts .span1 > p{
+    font-size: 14px;    
+}
+
+.maindiv .counts .span1 > :nth-child(1){
+    font-size: 16px;
+}
+
+.mobilenav{
+    width: 100%;
+    height: 40px;
+    /* background-color: orange; */
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    padding: 10px 20px;
+    visibility: visible;
+}
+.mobilenav > p{
+    font-size: 14px;
+}
+
+.mobilenav .alert{
+    background-color: red;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 3px;
+    right: 18px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 10px;
+}
+
+.maindiv .topinfo .rightside > .topnames{
+   margin-left: 180px;
+   margin-top: -30px;
+}
+
+.rightside .topnames > h2 {
+    font-size: 15px;
+}
+
+.rightside .topnames > h2 > i{
+    display: none;
+}
+
+.outerdivcircle img{
+    width: 60px;
+    height: 60px;
+}
+
+.outerdivcircle{
+    width: 65px;
+    height: 65px;
+}
+
+.highlight1 p{
+    font-size: 11px;
+}
+
+
+
+}

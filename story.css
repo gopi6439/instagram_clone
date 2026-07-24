@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+ID:wght@100..400&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+    --primary-color:#0C1014;
+    --primary-light:rgb(42, 48, 58);
+    --half-white:rgba(255, 255, 255, 0.5);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scrollbar-width: none;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    background-color: var(--primary-color);
+}
+
+.main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: pink; */
+}
+
+h1{
+    color: white;
+    font-size: 18px;
+    position: fixed;
+    margin: 10px 20px;
+    font-family: "Playwrite ID", cursive;
+}
+
+.closebtn{
+    position: fixed;
+    top: 0;
+    right: 0;
+    font-size: 25px;
+    margin: 10px 20px;
+}
+
+.storyvideo{
+    /* width: 90%; */
+    height: 100vh;
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    /* background-color: yellow; */
+    position: relative;
+}
+
+.storyvideo .top{
+    width: 360px;
+    padding: 5px;
+    color: white;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    /* background-color: orange; */
+}
+
+
+.searchdiv{
+    width: 380px;
+    /* background-color: orange; */
+    display: flex;
+    position: absolute;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    gap: 10px;
+    bottom: 25px;
+}
+
+.searchdiv > :nth-child(2){
+    font-size: 23px;
+}
+.searchdiv > :nth-child(3){
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.search{
+    width: 80%;
+    padding: 8px 5px;
+    border-radius: 25px;
+    /* background-color:rgba(255, 255, 255, 0.1); */
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.5);
+    box-sizing: border-box;
+}
+
+.search > input{
+    width: 100%;
+    border: none;
+    color: white;
+    font-size: 15px;
+    background: transparent;
+    padding: 5px 15px;
+}
+.search > input::placeholder{
+    font-size: 16px;
+    color: var(--half-white);
+}
+.search > input:focus{
+    border: none;
+    outline: none;
+}
+.search > i{
+    padding: 0 10px;
+}
+
+.storyvideo .top .right{
+    /* background-color: red; */
+    margin-left: auto;
+    padding: 8px;
+    display: flex;
+    gap: 10px;
+}
+
+.storyvideo .top .right > :nth-child(4){
+    display: none;
+}
+
+.storyvideo .top .right > i{
+    font-size: 15px;
+}
+
+.storyvideo .names > :nth-child(1) > span{
+    color: var(--half-white);
+    margin-left: 5px;
+}
+
+.storyvideo .top .names > :nth-child(1){
+    font-size: 14px;
+}
+
+.storyvideo .top .names > :nth-child(2){
+    font-size: 12px;
+}
+
+.storyvideo .top >img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.main video{
+    width: 100%;
+    height: 100%;
+}
+
+/* -----------MEDIA QUERY----------- */
+@media (max-width:776px) {
+    h1{
+        display: none;
+    }
+    .closebtn{
+        display: none;
+    }
+
+.storyvideo .top .right > :nth-child(4){
+    text-decoration: none;
+    display: block;
+    margin-top: -3px;
+}
+.storyvideo .top .right > :nth-child(3){
+    display: none;
+}
+
+
+
+
+
+
+}
